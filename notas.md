@@ -214,4 +214,139 @@ const f = new Function("a", "b", texto);
 f(1, 2); // 3;
 ~~~
 
+### Estructuras de control
 
+#### Condicionales
+
+La primer estructura importante es `if`. Ejemplo:
+
+~~~js
+const edad = 23;
+
+if (edad < 18) {
+    console.log("Menor de edad");
+} else if (edad >= 18 && edad < 25) {
+    console.log("Joven");
+} else if (edad >= 25 && < 60) {
+    console.log("Adulto");
+} else {
+    console.log("Master");
+}
+~~~
+
+El segundo tipo de condicional es un selector de casos llamado `switch`. Ejemplo:
+
+~~~js
+const tipo = "celular";
+const numero = "5512345678";
+
+switch(tipo) {
+    case "celular":
+        console.log(`Cel. ${numero}`);
+        break;
+    case "oficina":
+        console.log(`Ofic. ${numero}`);
+    default:
+        console.log(`Tel. ${numero}`);
+        break;
+}
+~~~
+
+#### Iteradores
+
+Tenemos tres formas de `for`. La primer forma se considera como la forma tradicional o iterador secuencial. Ejemplo:
+
+~~~js
+for (let i = 0; i < 10; i++) {
+    console.log(`Posición: ${i} Cuadrado: ${i * i}`);
+}
+~~~
+
+La segunda forma de `for` se considera `for-of` o iterador sobre elementos de un arreglo. Ejemplo:
+
+~~~js
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let x of numeros) {
+    console.log(`Elemento: ${x}`);
+}
+~~~
+
+La tercer forma de `for` se considera como `for-in` o iterador de claves, es útil para obtener las claves de un objeto o los índices de un arreglo. Ejemplo:
+
+~~~js
+const datos = {
+    a: 123,
+    b: false,
+    c: null,
+    d: [1, 2, 3]
+};
+
+for (let k in datos) {
+    let v = datos[k];
+    console.log(`Clave: ${k} Valor: ${v}`);
+}
+~~~
+
+~~~js
+const persona = {
+    nombre: "Ana",
+    edad: 25
+};
+
+let contador = 0;
+
+for (let k in persona) {
+    if (k === "nombre" || k === "edad" || k === "correo") {
+        contador++;
+    }
+}
+
+if (contador < 3) {
+    console.log("Faltan datos");
+}
+~~~
+
+~~~js
+const persona = {
+    nombre: "Ana",
+    edad: 25
+};
+
+const claves_req = ["nombre", "edad", "correo", "x"];
+
+let contador = 0;
+
+for (let k in persona) {
+    if (claves_req.indexOf(k) >= 0) {
+        contador++;
+    }
+}
+
+if (contador < claves_req.length) {
+    console.log("Faltan datos");
+}
+~~~
+
+#### Ciclos
+
+El ciclo `while` y `do-while` operan como en `C`. Ejemplo:
+
+~~~js
+let respuesta = "NO";
+while (respuesta === "NO") {
+    respuesta = checar_respuesta();
+    // if (respuesta === "SI") {
+    //     break;
+    // }
+}
+
+let respuesta2;
+
+do {
+    respuesta2 = checar_respuesta();
+    // if (respuesta2 === "SI") {
+    //     break;
+    // }
+} while(respuesta === "NO");
+~~~
