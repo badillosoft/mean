@@ -2,7 +2,7 @@
 
 Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
-## Javascript
+## Javascript
 
 Es un lenguaje de programación optimizado para web.
 
