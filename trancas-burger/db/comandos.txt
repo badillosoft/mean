@@ -1,0 +1,4 @@
+# Importar un archivo JSON
+mongoimport -d DB -c COLL --file PATH/FILE.json --jsonArray --mode merge --uri mongodb://IP
+# -d --database (base de datos)
+# -c --collection (colección)

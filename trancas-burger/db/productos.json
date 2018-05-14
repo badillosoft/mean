@@ -1,0 +1,28 @@
+[
+    {
+        "_id": "cajun",
+        "nombre": "Hamburguesa Cajun",
+        "descripcion": "Nuestra ya famosa hamburguesa tradicional bañada en una exquisita salsa cajun",
+        "foto": "https://img.imgur.com/D94xkTU.png",
+        "precio": 90,
+        "extras": [
+            "queso",
+            "tocino",
+            "pepinillos",
+            "piña"
+        ]
+    },
+    {
+        "_id": "bbq",
+        "nombre": "Hamburguesa BBQ",
+        "descripcion": "Nuestra ya famosa hamburguesa tradicional bañada en una exquisita salsa BBQ",
+        "foto": "https://img.imgur.com/D94xkTU.png",
+        "precio": 85,
+        "extras": [
+            "queso",
+            "tocino",
+            "pepinillos",
+            "piña"
+        ]
+    }
+]

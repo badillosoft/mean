@@ -1,0 +1,14 @@
+[
+    {
+        "_id": "cervera",
+        "administrador": {
+            "nombre": "El Trancas",
+            "correo": "trancas@gmail.com",
+            "telefono": "5512345678"
+        },
+        "ubicacion": {
+            "latitud": "20.9790639",
+            "longitud": "-101.2894498"
+        }
+    }
+]
