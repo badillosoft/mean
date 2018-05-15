@@ -8,7 +8,7 @@ En esta práctica vamos a crear un programa que nos ayude a realizar tareas de a
 
 La idea es listar los archivos que queremos copiar dentro de un archivo de texto plano, en donde cada línea del archivo será la ruta del archivo a copiar. El programa deberá tomar cada ruta del archivo y generar un nombre aleatorio para el nuevo archivo, recuperando su extensión e integrandola en el nombre del archivo. Luego deberemos copiar el archivo haciendo uso del módulo `fs` con el método `copyFileSync`.
 
-## Leer el archivo de las rutas
+## Leer el archivo de las rutas
 
 El archivo de las rutas será un archivo de texto plano como el siguiente:
 
@@ -75,6 +75,6 @@ fs.copyFileSync(origen, destino);
 
 No olvides checar que la carpeta `./backup` exista.
 
-## Ejercicios
+## Ejercicios
 
 * Integra todas las piezas descritas anteriormente para leer cada una de las rutas de los archivos a copiar, luego extrar la extensión, generar un nombre aleatorio, ponerle la extensión al nombre aleatorio y copiar el archivo de la ruta original a la ruta `./backup/XXXX.YYY`.

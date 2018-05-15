@@ -1,4 +1,4 @@
-# Práctica II - Uso del sistema de archivos `fs`
+# Práctica II - Uso del sistema de archivos `fs`
 
 Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
