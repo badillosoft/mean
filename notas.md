@@ -350,3 +350,27 @@ do {
     // }
 } while(respuesta === "NO");
 ~~~
+
+## Operaciones sobre cadenas
+
+Las cadenas pueden ser operadas de distintas formas y uno de los métodos más útiles es el método `split()` que parte una cadena basandose en un separador, ejemplo:
+
+~~~js
+const texto = "Hola mundo mundial";
+
+const palabras = texto.split(" ");
+
+console.log(palabras);
+~~~
+
+Observa que la partición (el `split`) se hace mediante el separador `" "`. En este segundo ejemplo se muestra como iterar las particiones:
+
+~~~js
+const texto = "- hola como estás?\n- bien\n- ok";
+
+const lineas = texto.split("\n");
+
+for (let linea of lineas) {
+    console.log(`Linea: ${linea} Tamaño: ${linea.length}`);
+}
+~~~
