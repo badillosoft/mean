@@ -1,4 +1,4 @@
-# Práctica 1 - Dominando los callbacks en javascript
+# Práctica I - Dominando los callbacks en javascript
 
 Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
