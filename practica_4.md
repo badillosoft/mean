@@ -1,4 +1,4 @@
-# Práctica 4 - Copiador de archivos
+# Práctica IV - Copiador de archivos
 
 Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
