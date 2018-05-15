@@ -4,9 +4,9 @@ Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
 ## Introducción
 
-En está práctica vamos a construir un buscador de imágenes partiendo de una carpeta dada y explorando una subcarpeta, nos enfocaremos en un sólo tipo de extensión de imágenes por ejemplo `png`.
+En está práctica vamos a construir un buscador de imágenes partiendo de una carpeta dada, listando sus archivos y explorando las subcarpetas, nos enfocaremos en un sólo tipo de extensión de imágenes por ejemplo `png`.
 
-La idea es abrir una carpeta y listar sus archivos y carpetas, si es de tipo archivo, deberemos checar si termina en `.png`, y si es carpeta deberemos repetir la misma tarea de buscar archivos pero ahora partiendo de la subcarpeta. Sería bueno guardar la ruta del padre para saber donde estamos ubicados y mostrar la ruta completa de los archivos que sean imágenes.
+La idea es abrir una carpeta y listar sus archivos y sub-carpetas, si es de tipo archivo, deberemos checar si termina en `.png`, y si es carpeta deberemos repetir la misma tarea de buscar imágenes pero ahora partiendo de la subcarpeta.
 
 ## Listar los archivos en una carpeta
 
