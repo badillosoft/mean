@@ -8,7 +8,7 @@ Vamos a aprender a conectar `MongoDB` a `NodeJS`. Para esto necesitaremos instal
 
 Documentación: http://mongodb.github.io/node-mongodb-native/3.0/quick-start/quick-start/
 
-## Instalar el módulo `mongodb`
+## Instalar el módulo `mongodb`
 
 Vamos a ejecutar en una terminal `npm i mongodb` o completo `npm install mongodb` lo cuál creara la carpeta `node_modules` en la raíz del proyecto. Esta carpeta contendrá todos los archivos del módulo y sus dependencias, si queremos instalar de manera global haremos `npm i -g mongodb` y posteriormente `npm link mongodb` el primer comando instalará el módulo `mongodb` de forma global y el segundo lo enlazará a nuestro proyecto.
 
