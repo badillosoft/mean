@@ -8,7 +8,7 @@ Hasta ahora reutilizar código se ha vuelto un poco díficil, por lo que en esta
 
 ## Exportar funcionalidad
 
-Cualquier archivo de javascript puede ser tratado como un módulo. La variable `module.exports` definida globalmente nos permite exportar cualquier cosa que contenga y sea utilizada en otro archivo mediante `require()`. Por ejemplo:
+Cualquier archivo de javascript puede ser tratado como un módulo. La variable `module.exports` definida globalmente nos permite exportar cualquier cosa que contenga y podrá ser utilizada en otro archivo mediante `require()`. Por ejemplo:
 
 > `mi_modulo.js`
 
