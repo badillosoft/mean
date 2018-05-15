@@ -6,7 +6,7 @@ Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
 Hasta ahora reutilizar código se ha vuelto un poco díficil, por lo que en esta práctica vamos a ver cómo crear módulos para que las cosas funcionen de manera más fácil.
 
-## Exportar funcionalidad
+## Exportar funcionalidad
 
 Cualquier archivo de javascript puede ser tratado como un módulo. La variable `module.exports` definida globalmente nos permite exportar cualquier cosa que contenga y podrá ser utilizada en otro archivo mediante `require()`. Por ejemplo:
 
@@ -49,7 +49,7 @@ console.log(modulo.mensaje); // imprime "Hola"
 modulo.saludar(); // imprime "Mensaje: Hola"
 ~~~
 
-## Módulo para manejar fácilmente MongoDB
+## Módulo para manejar fácilmente MongoDB
 
 Vamos a mostrar como crear un módulo sencillo para controlar internamente `mongo` para facilitar las operaciones.
 
