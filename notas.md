@@ -375,6 +375,191 @@ for (let linea of lineas) {
 }
 ~~~
 
+### Promesas
+
+Las promesas en javascript son una forma de normalizar el manejo de callbacks, para reducir la complejidad del código y poder formar fácilmente cadenas de código asíncrono.
+
+Cuando una función llama a un callback, el programador puede facilmente perder la secuencia del código, es muy común tener errores de mandar a llamar una función antes de que la otra finalice, por ejemplo:
+
+~~~js
+coll.find({}).toArray((err, docs) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log(doc);
+});
+client.close();
+~~~
+
+~~~js
+setTimeout(() => {
+    console.log("Ahora podemos llamar al otro callback");
+}, 3000);
+
+setTimeout(() => {
+    console.log("Este callback debe ser llamado después del otro");
+}, 2000);
+~~~
+
+~~~js
+setTimeout(() => {
+    console.log("Ahora podemos llamar al otro callback");
+
+    setTimeout(() => {
+        console.log("Este callback debe ser llamado después del otro");
+    }, 2000);
+}, 3000);
+~~~
+
+~~~js
+fA("/home", (imagenes) => {
+    fB(imagenes, "/backup", () => {
+        console.log("Finalizado");
+    });
+});
+~~~
+
+~~~js
+buscar_archivos("/home", archivo => {
+    chechar_imagen(archivo, () => {
+        guardar_imagen(archivo, ruta => {
+            console.log("imagen guardada:", ruta);
+        });
+    });
+});
+~~~
+
+Una promesa es un objeto que puede llamar a dos métodos: `then` y `catch`, los métodos reciben un callback para procesar la respuesta de la promesa:
+
+~~~js
+// SIN PROMESAS (callbacks)
+buscar_archivos("/home", archivo => {
+    chechar_imagen(archivo, imagen => {
+        guardar_imagen(imagen, ruta => {
+            console.log("imagen guardada:", ruta);
+        });
+    });
+});
+
+// CON PROMESAS
+buscar_archivo("/home").then(archivo => {
+    return checar_imagen(archivo);
+}).then(imagen => {
+    return guardar_imagen(imagen);
+}).then(ruta => {
+    console.log("imagen guardada:", ruta);
+});
+~~~
+
+~~~js
+// SIN POMESAS
+A(..., rA => {
+    B(..., rB => {
+        C(..., rC => {
+            ....
+        });
+    });
+});
+
+// CON PROMESAS
+A(...).then(rA => {
+    return B(...);
+}).then(rB => {
+    return C(...);
+}).then(rC => {
+    ...
+}).catch(err => {
+    ...
+});
+~~~
+
+#### Crear una Promesa
+
+Para crear una promesa vamos a utilizar la clase `Promise` enviando un callback con la estructura `(resolve, reject) => {}`.
+
+El método `resolve` automáticamente va a resolver la promesa de forma exitosa y los parámetros enviados a `resolve` serán la respuesta `then` de la promesa.
+
+El método `reject` automáticamente va a finalizar la promesa indicando error y los parámatros enviados a `reject` serán la respuesta `catch` de la promesa.
+
+Ejemplo: Supongamos que queremos pedirle el nombre al usuario y no sabemos cuánto se va a tardar en dárnoslo, en este caso podemos crear una función sin promesas como sigue:
+
+~~~js
+const readline = require("readline");
+
+function pedir_nombre(callback) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.question('¿Cómo te llamas? ', (respuesta) => {
+        rl.close();
+        callback(respuesta);
+    });
+}
+
+pedir_nombre((nombre) => {
+    console.log(`Hola ${nombre}`);
+});
+~~~
+
+Cuando utilizamos promesas ya no será necesario solicitar un callback como parámetro del método, en vez de eso, vamos a regresar una instancia de `Promise`:
+
+~~~js
+const readline = require("readline");
+
+function pedir_nombre2() {
+    return new Promise((resolve, reject) => {
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+
+        rl.question('¿Cómo te llamas? ', (respuesta) => {
+            rl.close();
+            resolve(respuesta);
+        });
+    });
+}
+
+pedir_nombre2().then(nombre => {
+    console.log(`Hi ${nombre}`);
+});
+~~~
+
+~~~js
+pedir_nombre(nombre1 => {
+    pedir_nombre(nombre2 => {
+        pedir_nombre(nombre3 => {
+            console.log(nombre1, nombre2, nombre3);
+        });
+    });
+});
+
+pedir_nombre().then(nombre1 => {
+    return pedir_nombre().then(nombre2 => {
+        return pedir_nombre().then(nombre3 => {
+            console.log(nombre1, nombre2, nombre3);
+        });
+    });
+});
+
+Promise.all([pedir_nombre(), pedir_nombre(), pedir_nombre()]).then((nombres) => {
+    console.log(nombres[0], nombres[1], nombres[2]);
+});
+
+async function nombres() {
+    const nombre1 = await pedir_nombre();
+    const nombre2 = await pedir_nombre();
+    const nombre3 = await pedir_nombre();
+
+    console.log(nombre1, nombre2, nombre3);
+}
+
+await nombres();
+~~~
+
 ## Express
 
 `Express` es un módulo para `NodeJS` que nos permite montar un servidor bajo los protocolos `http` y `https`. La idea principal es crear un *router* que nos permita controlar rutas estáticas y dinámicas bajo los métodos `GET`, `POST`, `PUT` y `DELETE` principalmente.
