@@ -374,3 +374,39 @@ for (let linea of lineas) {
     console.log(`Linea: ${linea} Tamaño: ${linea.length}`);
 }
 ~~~
+
+## Express
+
+`Express` es un módulo para `NodeJS` que nos permite montar un servidor bajo los protocolos `http` y `https`. La idea principal es crear un *router* que nos permita controlar rutas estáticas y dinámicas bajo los métodos `GET`, `POST`, `PUT` y `DELETE` principalmente.
+
+### Instalación
+
+Para instalar *express* necesitamos ejecutar `npm i express` de manera local o `npm i -g express` de manera global y en este último caso enlazar el módulo a nuestro proyecto local mediante `npm link express`. Cuando instalamos un módulo global los archivos residen en una carpta común a todo el sistema operativo por lo que podemos utilizar los mismos archivos en cada proyecto enlazando mediante `npm link`. Cuando los módulos son locales, cada proyecto descargará sus propios archivos.
+
+### Montar un servidor
+
+Para montar un servidor usaremos la forma tradicional haciendo uso del módulo `http` que es parte de *node*. Vamos a crear una instancia de *express* definir las rutas, montar el servidor y probarlo en el navegador bajo el puerto especificado.
+
+> `server.js`
+
+~~~js
+// importar los módulos necesarios
+const http = require("http");
+const express = require("express");
+
+// crear la instancia de *express*
+const app = express();
+
+// agregar una ruta de tipo GET en el path /api/cliente/saludar
+app.get("/api/cliente/saludar", (req, res) => {
+    res.send({
+        mensaje: "Hola mundo",
+        fecha: new Date()
+    });
+});
+
+// montar el servidor
+http.createServer(app).listen(3000, () => {
+    console.log("Servidor iniciado en http://localhost:3000/");
+});
+~~~
