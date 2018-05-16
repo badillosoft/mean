@@ -40,6 +40,40 @@ app.put("/api/cliente/:id", (req, res) => {
         res.status(400).send(err);
     });
 });
+
+app.get("/api/cliente", (req, res) => {
+    const { filtro } = req.query;
+
+    if (filtro === "correo") {
+        const { correo } = req.query;
+
+        Cliente.find()
+            .where({ correo: correo })
+            //.where("estado").in(["activo", "suspendido"])
+            //.where("edad").gte(12).lte(20)
+            //.skip(page_num * page_size).limit(page_size)
+            .exec()
+            .then(clientes => {
+                res.send(clientes);
+            }).catch(err => {
+                res.status(400).send(err);
+            });
+        return;
+    }
+
+    Cliente.find().then(clientes => {
+        res.send(clientes);
+    }).catch(err => {
+        res.status(400).send(err);
+    });
+});
+
+app.get("/api/cliente/:id", (req, res) => {
+    const {id} = req.params;
+    Cliente.findById(id).then(clientes => {
+        res.send(clientes);
+    });
+});
 // -- RUTAS
 
 mongoose.connect("mongodb://localhost/mean").then(() => {

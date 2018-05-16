@@ -682,3 +682,7 @@ app.put("/api/cliente/:nombre", (req, res) => {
     });
 });
 ~~~
+
+### Crear una carpeta de recursos estáticos
+
+Para poder enviar archivos estáticos de una carpeta en específico podemos utilizar `app.use(express.static('public'));` o `app.use("/static", express.static('public'));` si se desea cambiar la ruta de montado.
