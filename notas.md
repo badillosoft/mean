@@ -410,3 +410,90 @@ http.createServer(app).listen(3000, () => {
     console.log("Servidor iniciado en http://localhost:3000/");
 });
 ~~~
+
+### Recuperar los datos de petición `query` en el controlador
+
+Cuando definimos `app.get()` en el callback recibimos un objeto `req` que contiene la información de la petición, por ejemplo, podemos regresar como respuesta la misma petición en su objeto query:
+
+~~~js
+app.get("/api/cliente/saludar", (req, res) => {
+    res.send(req.query);
+});
+~~~
+
+Observa que el objeto `query` de la petición `req` transforma los datos query de la url en un objeto JSON con las claves y valores:
+
+~~~txt
+http://localhost:3000/api/cliente/saludar?nombre=pepe&raza=humano&x=123&a[]=1&a[]=2
+~~~
+
+> `req.query`
+
+~~~json
+{
+  "nombre": "pepe",
+  "raza": "humano",
+  "x": "123",
+  "a": [
+    "1",
+    "2"
+  ]
+}
+~~~
+
+### Crear rutas dinámicas
+
+Una ruta puede contener variables de texto dentro de su definición lo que provocará tener rutas dinámicas, es decir, rutas más complejas que nos permitar llamar a un mismo controlador de distintas formas.
+
+~~~txt
+GET /api/cliente/pepe/saludar
+GET /api/cliente/ana/saludar
+~~~
+
+En este ejemplo `/pepe/` es variable ya que es muy similar la estructura a `/ana/`. Para marcar una ruta con uno o varios fragmentos variables hacemos:
+
+~~~js
+app.get("/api/cliente/:nombre/saludar", (req, res) => {
+    res.send(req.params);
+});
+~~~
+
+~~~js
+app.get("/api/cliente/:nombre/saludar", (req, res) => {
+    const nombre = req.params.nombre; // req.params["nombre"] 
+    res.send({
+        mensaje: `Hola ${nombre}`
+    });
+});
+~~~
+
+### Procesar datos body de un formulario y datos JSON
+
+Las peticiones `POST`, `PUT` y `DELETE` pueden llevar metadatos junto a la url pero no sobre la url, por eso se consideran métodos especiales. Lo más común es enviar los datos desde un formulario HTTP, pero también podríamos enviar los datos en formato JSON.
+
+Lo primero que necesitamos es soportar los datos body mediante el módulo `body-parser` (`npm i body-parser`):
+
+~~~js
+// importar los módulos necesarios
+const http = require("http");
+const express = require("express");
+const bodyParser = require("body-parser");
+
+// crear la instancia de *express*
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+~~~
+
+Ahora ya podemos controlar rutas especiales (`POST`, `PUT`, `DELETE`) y acceder a los datos que vienen desde el body:
+
+~~~js
+app.put("/api/cliente/:nombre", (req, res) => {
+    res.send({
+        params: req.params,
+        query: req.query,
+        body: req.body
+    });
+});
+~~~
