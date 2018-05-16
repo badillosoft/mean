@@ -351,7 +351,7 @@ do {
 } while(respuesta === "NO");
 ~~~
 
-## Operaciones sobre cadenas
+### Operaciones sobre cadenas
 
 Las cadenas pueden ser operadas de distintas formas y uno de los métodos más útiles es el método `split()` que parte una cadena basandose en un separador, ejemplo:
 
