@@ -42,7 +42,7 @@ const personas = [
         nombre: "Daniel",
         edad: 19,
         genero: "hombre"
-    },
+    }
 ];
 ~~~
 
@@ -150,7 +150,7 @@ El servicio debe devolver un json con los datos de cada persona transformada com
         "MUJER: ana/23",
         "HOMBRE: Beto/16",
         "MUJER: Carla/13",
-        "HOMBRE: Daniel/19",
+        "HOMBRE: Daniel/19"
     ]
 }
 ~~~
