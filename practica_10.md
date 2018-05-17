@@ -7,7 +7,7 @@ Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 Los filtros nos permiten tomar de un arreglo, todos aquellos elementos que pasen el filtro y serán asignados a un nuevo arreglo que será devuelto, si ningún elemento pasa el filtro, el arreglo devuelto estará vacío. Ejemplo:
 
 Por ejemplo, si tenemos un arreglo de números y queremos transformarlos de tal forma que queramos los números pares:
-
+  
 ~~~js
 const original = [1, 2, 2, 3, 3, 5, 4, 6];
 
