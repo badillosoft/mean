@@ -4,7 +4,7 @@ Autor: Alan Badillo Salas (badillo.soft@hotmail.com)
 
 ## Introducción
 
-En está práctica vamos a construir un servicio para realizar operaciones complejas sobre ubicaciones (simulando ubicaciones geográficas latitu y longitud).
+En está práctica vamos a construir un servicio para realizar operaciones complejas sobre ubicaciones (simulando ubicaciones geográficas latitud y longitud).
 
 ## Punto contenido en un radio
 
@@ -14,7 +14,7 @@ Por lo tanto, si queremos determinar si el punto `(x, y)` está dentro del círc
 
 ## Ejercicios
 
-* Crea un servicio que provea la ruta `GET /api/geo/in` que reciba en su `query` los parámetros `a`, `b`, `x` y `y` y devuelva el json `{"contenido": true, "origen": { x: a, y: b }, "objetivo": { x: x, y: y } }`.
+* Crea un servicio que provea la ruta `GET /api/geo/in` que reciba en su `query` los parámetros `a`, `b`, `x`, `y` y `r` y devuelva el json `{"contenido": true, "origen": { x: a, y: b }, "objetivo": { x: x, y: y } }`.
 
 * Agrega al servicio la ruta `POST /api/geo/all` que reciba en su `body` un json con una lista de puntos y el objetivo (el punto `(a, b)` y su radio) como se muestra:
 
