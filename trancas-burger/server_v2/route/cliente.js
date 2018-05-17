@@ -3,8 +3,12 @@ const router = express.Router();
 const Cliente = require("../db/cliente");
 
 router.put("/cliente", (req, res) => {
-    req.body._id = Math.random().toString(16).slice(2);
-    Cliente.create(req.body).then(() => {
+    const cliente = req.body;
+
+    cliente._id = Math.random().toString(16).slice(2);
+    cliente.token = Math.random().toString(16).slice(2);
+
+    Cliente.create(cliente).then(() => {
         res.send({
             "mensaje": "Se ha creado un nuevo cliente"
         });
