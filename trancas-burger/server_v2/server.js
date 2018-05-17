@@ -3,15 +3,13 @@ const router_clientes = require("./route/cliente");
 const security_middleware = require("./security/middleware");
 const security_router = require("./security/router");
 
+// SEGURIDAD
 main.app.use("/auth", security_router);
 main.app.use("/api", security_middleware);
+
+// SISTEMA
 main.app.use("/api", router_clientes);
 
-const config = {
-    port: 5000,
-    mongo_db: "mean"
-};
+const config = require("./config.json");
 
-main.start(config).then(() => {
-    // ready
-});
+main.start(config).then(() => { });
