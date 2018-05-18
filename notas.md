@@ -686,3 +686,110 @@ app.put("/api/cliente/:nombre", (req, res) => {
 ### Crear una carpeta de recursos estáticos
 
 Para poder enviar archivos estáticos de una carpeta en específico podemos utilizar `app.use(express.static('public'));` o `app.use("/static", express.static('public'));` si se desea cambiar la ruta de montado.
+
+## Angular
+
+Es un framework/plataforma que nos permite crear aplicaciones basadas en `Componentes`.
+
+### Intalación
+
+Utiliza `npm i -g @angular/cli` para instalar el cliente `ng`. Si no puedes intenta `sudo chmod -R 777 /usr/local/lib`.
+
+Prueba que el cliente `ng` funcione mediante `ng -v`.
+
+### Configuración del proyecto
+
+Para configurar el proyecto vamos a abrir una terminal y crear un proyecto sobre la carpeta que estemos parados. Vamos a escribir en la terminal `ng new MiApp` y va a crear la carpeta `MiApp` la cuál contendrá el proyecto de angular.
+
+Vamos a movernos dentro de la carpeta `MiApp` en la terminal (`cd MiApp`).
+
+Para comprobar que el proyecto funcione (y en casos posteriores para lanzar la app en pruebas) vamos a utilizar `ng serve` (`ng serve --port 4200`).
+
+Mientras el servidor este prendido los cambios en la aplicación se reflejarán automáticamente ya que volverá a recompilar. La página se actualizará sola.
+
+### Sistemas de rutas (ruteador)
+
+Para poder integrar varios componentes vamos a ejecutar el comando: `ng generate module app-routing --flat --module=app`.
+
+Luego vamos a crear un archivo llamado `app.routes.ts` dentro de la carpeta `src/app`.
+
+El archivo `app-routing.module.ts` debería verse como el siguiente:
+
+~~~ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes : Routes = [
+
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes),
+  ],
+  declarations: [],
+  exports: [
+    RouterModule,
+  ]
+})
+export class AppRoutingModule { }
+~~~
+
+### Crear componentes
+
+Para crear un componente vamos a utilizar `ng generate component PaginaA` genera el componente para la página `A`.
+
+Automáticamente nos va a crear la carpeta `src/app/pagina-a` y dentro de esta capeta estarán todos archivos del componente `PaginaA`.
+
+### Enlazar los componentes a las rutas
+
+Para que un componente pueda ser navegado, vamos a modificar el archivo `app.component.html` de tal forma que quede como el siguiente:
+
+~~~html
+<router-outlet></router-outlet>
+~~~
+
+Ahora el componente `App` funciona como un ruteador. Podemos establecer las rutas regresando a `app-routing.ts`.
+
+Ahora `app-routing.ts` lucirá como:
+
+~~~ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
+import { PaginaAComponent } from './pagina-a/pagina-a.component';
+import { PaginaBComponent } from './pagina-b/pagina-b.component';
+
+const routes : Routes = [
+  {
+    path: "pagina-a",
+    component: PaginaAComponent
+  },
+  {
+    path: "pagina-b",
+    component: PaginaBComponent
+  },
+];
+
+// ...
+~~~
+
+### Estado interno del Componente
+
+Cada componente define una clase como `PaginaAComponent` que luce como la siguiente:
+
+> `src/app/pagina-a/pagina-a.component.ts`
+
+~~~ts
+export class PaginaAComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+~~~
