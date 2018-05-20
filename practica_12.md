@@ -8,6 +8,8 @@ Hay veces en que será necesario consumir un `API REST` ya construido en algún 
 
 Intalaremos `npm i node-fetch` antes que nada.
 
+Documentación: https://www.npmjs.com/package/node-fetch
+
 ## Consumir un servicio GET
 
 Para consumir un api `GET url` simplemente hacemos:

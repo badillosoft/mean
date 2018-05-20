@@ -1,7 +1,8 @@
-<h1>{{ titulo }}</h1>
+<input #FrutaInput type="text" placeholder="Escribe el nombre de una fruta" >
+<button (click)="agregarFruta(FrutaInput.value)" >agregar</button>
 
-<img src="http://placehold.it/300x300" alt="">
+<ul>
+  <li *ngFor="let fruta of frutas" >{{ fruta }}</li>
+</ul>
 
-<p>
-  pagina-a works!
-</p>
+<app-pagina-b></app-pagina-b>

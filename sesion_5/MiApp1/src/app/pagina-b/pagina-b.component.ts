@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaBComponent implements OnInit {
 
+  MiInput : HTMLObjectElement;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  pulsar() {
+    console.log("Hola mundo");
   }
 
 }
