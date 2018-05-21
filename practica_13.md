@@ -162,9 +162,9 @@ La función `const id = setInterval()` devuelve un `id` con el número de interv
 
 * Agrega la variable `id` al componente (hint: `id: any = null`).
 
-*  Define en el método `start()` checha si `this.id` no es `null` y de ser así manda a llamar al método `detener()` (borra el intervalo anterior en caso de que le den `iniciar()` dos o más veces seguidas).
+*  Define en el método `iniciar()` checha si `this.id` no es `null` y de ser así manda a llamar al método `detener()` (borra el intervalo anterior en caso de que le den `iniciar()` dos o más veces seguidas).
 
-* En el mismo método `start()` asigna `this.id` al `setInterval()` definido antes en `ngOnInit()` (quitalo de `ngOnInit`).
+* En el mismo método `iniciar()` asigna `this.id` al `setInterval()` definido antes en `ngOnInit()` (quitalo de `ngOnInit`).
 
 * En el método `detener()` checa si `this.id` no es `null` y de ser así borra el intervalo mediante `clearInterval(this.id)`, luego asigna `this.id` a `null`.
 
