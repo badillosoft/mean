@@ -1,3 +1,9 @@
-<p>
-  reloj works!
-</p>
+<div class="reloj">
+
+  <h1>Reloj</h1>
+
+  <input type="checkbox" (change)="formato = formato === '24' ? 'xm' : '24'">
+
+  <h2>{{ [horas, minutos, segundos] | reloj24xm:"24" }}</h2>
+
+</div>

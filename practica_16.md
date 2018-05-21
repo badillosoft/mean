@@ -114,7 +114,7 @@ Lo cual implica utilizar callbacks.
 
 * Agrega un método llamado `async searchMovies(apikey: String, title: String)` a `ImdbService`.
 
-* Dentro del método `searchMovies()` haz un `fetch` a la ruta `http://www.omdbapi.com/?apikey=${apikey}&s=${title}`) que devuelve un arreglo con las películas encontradas (realiza un log).
+* Dentro del método `searchMovies()` haz un `fetch` a la ruta `http://www.omdbapi.com/?apikey=${apikey}&s=${title}`) que devuelve un arreglo con las películas encontradas (realiza un log). Devuelve `Search` que es el arreglo con los datos de las películas.
 
 * En `ImdbPaginaComponent` agrega un `input-search` como:
 
