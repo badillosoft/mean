@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-hamburguesa',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HamburguesaComponent implements OnInit {
 
-  id: String = "batman-burguer";
+  @Input() id: String = "batman-burguer";
 
   data: any = {};
 

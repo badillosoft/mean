@@ -7,13 +7,15 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { HamburguesaComponent } from './hamburguesa/hamburguesa.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HamburguesaNuevaComponent } from './hamburguesa-nueva/hamburguesa-nueva.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HamburguesaComponent,
-    HomePageComponent
+    HomePageComponent,
+    HamburguesaNuevaComponent
   ],
   imports: [
     BrowserModule,

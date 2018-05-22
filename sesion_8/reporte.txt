@@ -1,0 +1,4 @@
+MongoDB shell version v3.4.4
+connecting to: mongodb://localhost:27017/mean
+MongoDB server version: 3.4.4
+Analizando la base de datos [mean]

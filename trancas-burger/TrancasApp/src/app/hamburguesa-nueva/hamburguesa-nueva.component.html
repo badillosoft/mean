@@ -1,0 +1,11 @@
+<div class="form">
+  <h1>Nueva Hamburguesa</h1>
+
+  <input type="text" [(ngModel)]="data._id" placeholder="Id" required>
+  <input type="text" [(ngModel)]="data.nombre" placeholder="Nombre" required>
+  <input type="text" [(ngModel)]="data.descripcion" placeholder="Descripcion" >
+  <input type="number" [(ngModel)]="data.precio" min="0" placeholder="Precio">
+  <input type="url" [(ngModel)]="data.imagen" placeholder="URL Imagen" required>
+
+  <button (click)="enviar()" >confirmar</button>
+</div>
