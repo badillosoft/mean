@@ -1,0 +1,23 @@
+<form class="burger-form">
+  <h1>Nueva Hamburguesa</h1>
+
+  <mat-form-field class="burger-full-width">
+    <input matInput placeholder="Nombre" required>
+  </mat-form-field>
+
+  <mat-form-field class="burger-full-width">
+    <textarea matInput placeholder="Descripción"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="burger-full-width">
+    <input matInput placeholder="Precio" type="number" class="burger-right-align" required>
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+
+  <mat-form-field class="burger-full-width">
+    <input type="url" matInput placeholder="Imagen">
+  </mat-form-field>
+
+  <img src="http://placehold.it/400x400" alt="">
+</form>
