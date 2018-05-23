@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BurgerService } from '../burger.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-burger-new-form',
@@ -15,13 +17,31 @@ export class BurgerNewFormComponent implements OnInit {
     image: "http://placehold.it/400x400"
   };
 
-  constructor() { }
+  constructor(
+    private burgerService: BurgerService,
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
   }
 
-  send() {
-    // TODO: Enviar `burger` al servicio `burgerService.create()`
+  async send() {
+    try {
+      await this.burgerService.create(this.burger);
+      this.snackBar.open('Hamburguesa enviada', "aceptar", {
+        duration: 1000,
+        horizontalPosition: "center",
+        verticalPosition: "top"
+      });
+    } catch(error) {
+      console.log(error);
+      this.snackBar.open("No se pudo enviar la hamburguesa", "aceptar", {
+        duration: 5000,
+        horizontalPosition: "center",
+        verticalPosition: "top"
+      });
+      return;
+    }
 
     this.burger._id = Math.random().toString(16).slice(2).toUpperCase(),
     this.burger.name = "";

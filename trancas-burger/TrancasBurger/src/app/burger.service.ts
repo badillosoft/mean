@@ -17,6 +17,17 @@ export class BurgerService {
       },
       body: JSON.stringify(burger)
     };
+
+    const response = await fetch(url, options);
+
+    if (response.status !== 200) {
+      const text = await response.text();
+      throw new Error(text);
+    }
+
+    const result = await response.json();
+
+    return result;
   }
 
 }

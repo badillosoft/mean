@@ -5,7 +5,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -15,6 +16,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule
   ],
   declarations: [],
   exports: [
@@ -22,6 +24,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class MaterializeModule { }
