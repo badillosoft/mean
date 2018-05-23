@@ -8,13 +8,15 @@ import { MaterializeModule } from './materialize/materialize.module';
 import { FormsModule } from '@angular/forms';
 import { BurgerComponent } from './burger/burger.component';
 import { BurgerListComponent } from './burger-list/burger-list.component';
+import { PanelMensajesComponent } from './panel-mensajes/panel-mensajes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BurgerNewFormComponent,
     BurgerComponent,
-    BurgerListComponent
+    BurgerListComponent,
+    PanelMensajesComponent
   ],
   imports: [
     BrowserModule,
