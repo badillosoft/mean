@@ -1,5 +1,7 @@
-<form class="burger-form">
-  <h1>Nueva Hamburguesa <button mat-button color="primary" class="burger-send">Enviar &nbsp;&nbsp; <mat-icon>send</mat-icon></button></h1>
+<form class="burger-form" #Form="ngForm">
+  <h1>Nueva Hamburguesa 
+    <button [disabled]="!Form.valid" (click)="send()" mat-button color="primary" class="burger-send">Enviar &nbsp;&nbsp; <mat-icon>send</mat-icon></button>
+  </h1>
 
   <mat-form-field class="burger-full-width">
     <input name="id" [(ngModel)]="burger._id" matInput placeholder="ID" required>

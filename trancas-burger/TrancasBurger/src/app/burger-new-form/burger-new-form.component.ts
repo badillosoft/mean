@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BurgerNewFormComponent implements OnInit {
 
   burger: any = {
-    _id: Math.random().toString(16).slice(2),
+    _id: Math.random().toString(16).slice(2).toUpperCase(),
     name: "",
     description: "",
     price: 50,
@@ -18,6 +18,14 @@ export class BurgerNewFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  send() {
+    // TODO: Enviar `burger` al servicio `burgerService.create()`
+
+    this.burger._id = Math.random().toString(16).slice(2).toUpperCase(),
+    this.burger.name = "";
+    this.burger.description = "";
   }
 
 }
