@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BurgerNewFormComponent } from './burger-new-form/burger-new-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from './materialize/materialize.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MaterializeModule } from './materialize/materialize.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterializeModule
+    MaterializeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
