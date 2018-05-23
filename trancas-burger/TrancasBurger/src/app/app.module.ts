@@ -6,11 +6,15 @@ import { BurgerNewFormComponent } from './burger-new-form/burger-new-form.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterializeModule } from './materialize/materialize.module';
 import { FormsModule } from '@angular/forms';
+import { BurgerComponent } from './burger/burger.component';
+import { BurgerListComponent } from './burger-list/burger-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BurgerNewFormComponent
+    BurgerNewFormComponent,
+    BurgerComponent,
+    BurgerListComponent
   ],
   imports: [
     BrowserModule,

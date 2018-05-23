@@ -1,0 +1,17 @@
+<div *ngIf="mode === 'list'" class="burger-list">
+  <img src="{{ data.image || 'http://placehold.it/400x400' }}" alt="burger image">
+  <h1>{{ data.name }} {{ data.price | currency }}</h1>
+  <h2>{{ data.description }}</h2>
+</div>
+
+<div *ngIf="mode === 'compact'" class="burger">
+  <img src="{{ data.image || 'http://placehold.it/400x400' }}" alt="burger image">
+  <h1>{{ data.name }} {{ data.price | currency }}</h1>
+  <h2>{{ data.description }}</h2>
+</div>
+
+<div *ngIf="mode === 'big'" class="burger-big">
+  <h1>{{ data.name }} {{ data.price | currency }}</h1>
+  <img src="{{ data.image || 'http://placehold.it/400x400' }}" alt="burger image">
+  <h2>{{ data.description }}</h2>
+</div>

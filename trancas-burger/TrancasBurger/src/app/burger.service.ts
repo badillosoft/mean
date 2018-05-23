@@ -30,4 +30,19 @@ export class BurgerService {
     return result;
   }
 
+  async all() {
+    const url = `https://api.mlab.com/api/1/databases/mean-mx/collections/burgers?apiKey=ayRRQWTsfrXOpE8za6m5FlXBXXPytqSf`;
+
+    const response = await fetch(url);
+
+    if (response.status !== 200) {
+      const text = await response.text();
+      throw new Error(text);
+    }
+
+    const result = await response.json();
+
+    return result;
+  }
+
 }
