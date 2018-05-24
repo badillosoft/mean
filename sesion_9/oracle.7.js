@@ -7,9 +7,7 @@ const config = require("./dbconfig.json");
 
     const conn = await oracle.getConnection(config);
 
-    const query = `
-    SELECT * FROM burgers
-    `;
+    const query = `SELECT * FROM burgers`;
 
     const result = await util.executeQuery(conn, query);
     
