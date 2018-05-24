@@ -1,5 +1,5 @@
 module.exports = {
-    execute: async (conn, ...params) => {
+    executeQuery: async (conn, ...params) => {
         const result = await conn.execute(...params);
 
         const columns = result.metaData.map(c => c.name);

@@ -11,7 +11,7 @@ const config = require("./dbconfig.json");
     SELECT * FROM burgers
     `;
 
-    const result = await util.execute(conn, query);
+    const result = await util.executeQuery(conn, query);
     
     console.log(result);
 
