@@ -2,3 +2,4 @@ node_modules/
 /lab/
 package-lock.json
 posters
+dbconfig.json

@@ -1,13 +1,13 @@
-import { MaterializeModule } from './materialize.module';
+// import { MaterializeModule } from './materialize.module';
 
-describe('MaterializeModule', () => {
-  let materializeModule: MaterializeModule;
+// describe('MaterializeModule', () => {
+//   let materializeModule: MaterializeModule;
 
-  beforeEach(() => {
-    materializeModule = new MaterializeModule();
-  });
+//   beforeEach(() => {
+//     materializeModule = new MaterializeModule();
+//   });
 
-  it('should create an instance', () => {
-    expect(materializeModule).toBeTruthy();
-  });
-});
+//   it('should create an instance', () => {
+//     expect(materializeModule).toBeTruthy();
+//   });
+// });
