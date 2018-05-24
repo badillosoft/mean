@@ -691,7 +691,7 @@ Para poder enviar archivos estáticos de una carpeta en específico podemos util
 
 Es un framework/plataforma que nos permite crear aplicaciones basadas en `Componentes`.
 
-### Intalación
+### Intalación
 
 Utiliza `npm i -g @angular/cli` para instalar el cliente `ng`. Si no puedes intenta `sudo chmod -R 777 /usr/local/lib`.
 

@@ -45,7 +45,7 @@ mongoose.connect("mongodb://localhost/mean").then(() => {
 });
 ~~~
 
-## SERVIDOR EXPRESS + SEGURIDAD
+## SERVIDOR EXPRESS + SEGURIDAD
 
 ~~~js
 const http = require("http");
@@ -68,7 +68,7 @@ function random_token(n = 32) {
 }
 
 function middleware_token(req, res, next) {
-    const token = req.query.token || req.body.token;
+    const token = req.query.token || req.body.token;
 
     const cliente = clientes.filter(c => c.token === token)[0];
 
@@ -148,7 +148,7 @@ http.createServer(app).listen(3000, () => {
 });
 ~~~
 
-## Pasos para construir un formulario de envío en Angular 6
+## Pasos para construir un formulario de envío en Angular 6
 
 * Crear un nuevo proyecto `ng new TrancasBurger`
 
@@ -246,7 +246,7 @@ export class BurgerNewFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  send() {
+  send() {
     // TODO: Enviar `burger` al servicio `burgerService.create()`
 
     this.burger._id = Math.random().toString(16).slice(2).toUpperCase(),
