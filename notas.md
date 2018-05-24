@@ -793,3 +793,85 @@ export class PaginaAComponent implements OnInit {
 
 }
 ~~~
+
+## Roles MongoDB
+
+Docs:
+
+* https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/#modify-access-for-an-existing-user
+
+* https://docs.mongodb.com/manual/reference/built-in-roles/#userAdminAnyDatabase
+
+Habilitar la seguirad:
+
+~~~js
+use admin
+db.createUser({
+    user: "admin",
+    pwd: "admin123",
+    roles: [
+        {
+            role: "userAdminAnyDatabase",
+            db: "admin"
+        }
+    ]
+})
+~~~
+
+Reiniciar `mongod` con seguridad
+
+> `mongod --auth`
+
+Ingresar con usuario `admin`
+
+> `mongo -u "admin" -p "admin123" --authenticationDatabase "admin"`
+
+Crear un nuevo usuario
+
+~~~js
+use mean
+db.createUser(
+    user: "mean",
+    pwd: "mean123",
+    roles: [
+        {
+            role: "readWrite",
+            db: "mean"
+        }
+    ]
+)
+~~~
+
+Agregar roles a un usuario:
+
+~~~js
+db.grantRolesToUser(
+    "mean",
+    [
+        {
+            role: "readWrite",
+            db: "mean"
+        }
+    ]
+)
+~~~
+
+Quitar roles a un usuario:
+
+~~~js
+db.revokeRolesToUser(
+    "mean",
+    [
+        {
+            role: "readWrite",
+            db: "mean"
+        }
+    ]
+)
+~~~
+
+Ver usuarios y roles:
+
+~~~js
+db.getUsers()
+~~~

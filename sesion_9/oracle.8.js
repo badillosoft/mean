@@ -12,7 +12,7 @@ const config = require("./dbconfig.json");
     const result = await util.executeQuery(conn, query);
     
     for (let burger of result) {
-        console.log(`${burger.id}: ${burger.nombre} $${burger.precio.toFixed(2)}`);
+        console.log(`${burger.id}:\t${burger.nombre} ($${burger.precio.toFixed(2)})`);
     }
 
     await conn.commit();
