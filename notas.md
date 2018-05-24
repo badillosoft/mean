@@ -875,3 +875,9 @@ Ver usuarios y roles:
 ~~~js
 db.getUsers()
 ~~~
+
+Conectarse a través del uri:
+
+> `mongodb://<user>:<pwd>@localhost:27017/<db>`
+
+> `mongodb://mean:mean123@localhost:27017/mean`
