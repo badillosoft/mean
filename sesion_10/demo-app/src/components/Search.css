@@ -1,0 +1,7 @@
+input {
+    width: calc(100% - 100px);
+}
+
+button {
+    width: 90px;
+}
